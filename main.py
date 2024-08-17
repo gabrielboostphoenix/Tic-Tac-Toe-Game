@@ -1,7 +1,8 @@
 # Importing the necessary functionalities
 from showOptionsMenu import showStartOptionsMenu
 from choiceTheFirstPlayer import choosingTheFirstPlayer
-from collectAndValidateThePlayerPosition import collectAndValidatePlayerPosition
+from collectAndValidateThePlayerXPosition import collectAndValidatePlayerXPosition
+from collectAndValidateThePlayerOPosition import collectAndValidatePlayerOPosition
 from checkWhoIsTheWinner import checkWhoIsTheWinner
 from createGameGraphic import createGameGraphic
 
@@ -28,7 +29,7 @@ for time in range(1, 6):
 
         # In this case, the player X starts first
         # Collecting a valid position from the player X
-        valid_position = collectAndValidatePlayerPosition(positions_of_player_O)
+        valid_position = collectAndValidatePlayerXPosition(positions_of_player_X, positions_of_player_O)
 
         # Adding the valid position in the player positions list
         positions_of_player_X.append(valid_position)
@@ -54,7 +55,7 @@ for time in range(1, 6):
             break
 
         # Collecting a valid position from the player O
-        valid_position = collectAndValidatePlayerPosition(positions_of_player_X)
+        valid_position = collectAndValidatePlayerOPosition(positions_of_player_O, positions_of_player_X)
 
         # Adding the valid position in the player positions list
         positions_of_player_O.append(valid_position)
@@ -75,7 +76,7 @@ for time in range(1, 6):
 
         # In this case, the player O starts first
         # Collecting a valid position from the player O
-        valid_position = collectAndValidatePlayerPosition(positions_of_player_X)
+        valid_position = collectAndValidatePlayerOPosition(positions_of_player_O, positions_of_player_X)
 
         # Adding the valid position in the player positions list
         positions_of_player_O.append(valid_position)
@@ -101,7 +102,7 @@ for time in range(1, 6):
             break
 
         # Collecting a valid position from the player X
-        valid_position = collectAndValidatePlayerPosition(positions_of_player_O)
+        valid_position = collectAndValidatePlayerXPosition(positions_of_player_X, positions_of_player_O)
 
         # Adding the valid position in the player positions list
         positions_of_player_X.append(valid_position)

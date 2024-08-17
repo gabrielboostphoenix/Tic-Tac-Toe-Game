@@ -1,5 +1,5 @@
 # Declaring the functionality that collects and validates the received player position
-def collectAndValidatePlayerPosition(positions: list):
+def collectAndValidatePlayerXPosition(positions_of_player_x: list, positions_of_player_o: list):
 
     # Repeat until the user provides a valid position
     while True:
@@ -14,11 +14,17 @@ def collectAndValidatePlayerPosition(positions: list):
             if not(position >= 1 and position <= 9):
                 raise ValueError("Posição fornecida inválida devido não existir como opção no jogo!")
 
-            # Checking if the received player position has already been chosen
-            for playerPosition in range(0, len(positions)):
+            # Checking if the received player position has already been chosen for player O
+            for index in range(0, len(positions_of_player_o)):
 
-                if positions[playerPosition] == position:
-                    raise ValueError("Posição fornecida inválida devido já estar sendo ocupada!")
+                if positions_of_player_o[index] == position:
+                    raise ValueError("Posição fornecida inválida devido já estar sendo ocupada pelo jogador O!")
+
+            # Checking if the received player position has already been used for yourself
+            for index in range(0, len(positions_of_player_x)):
+
+                if positions_of_player_x[index] == position:
+                    raise ValueError("Posição fornecida inválida devido já está sendo ocupada por você mesmo!")
 
             # Breaking the loop structure
             break
